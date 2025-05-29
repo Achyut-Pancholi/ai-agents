@@ -3,7 +3,7 @@
 
 
 
-# Flowbit AI Agent System – Internship Project (Achyut Kumar)
+# AI Agent Project (Achyut Kumar)
 
 This project is a multi-agent system that accepts Email, JSON, and PDF files, classifies their intent, parses them using AI agents, and stores structured results in shared memory.
 
