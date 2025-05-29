@@ -1,0 +1,15 @@
+[
+    {
+        "timestamp": "2025-05-29 19:29:53",
+        "source_type": "data/uploads\\a242eb58-3c11-4c9b-b323-5237ef307103_sample_email.txt",
+        "format": "Email",
+        "intent": "RFQ",
+        "data": {
+            "sender_email": "john@example.com",
+            "sender_name": "John Doe",
+            "urgency": "Normal",
+            "conversation_id": null,
+            "raw_content": "From: john@example.com\nSubject: Request for Quotation\n\nHi Team,\n\nPlease share a quotation for 20 HP laptops with extended warranty.\n\nRegards,\nJohn Doe"
+        }
+    }
+]
