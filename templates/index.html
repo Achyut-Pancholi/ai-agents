@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Flowbit AI Agent Upload</title>
+  <title> AI Agent Upload</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     * {
@@ -97,8 +97,14 @@
   </style>
 </head>
 <body>
+    {% if request.query_params.success %}
+  <div style="background:#d1fae5; color:#065f46; padding:10px; border-radius:6px; margin-bottom:20px;">
+    ✅ File uploaded and processed successfully!
+  </div>
+{% endif %}
+
   <div class="container">
-    <h2>📁 Upload Flowbit AI Agent</h2>
+    <h2>📁 Upload File</h2>
     <form action="/upload/" method="post" enctype="multipart/form-data">
       <input type="file" name="file" required>
       <button type="submit">🚀 Upload File</button>

@@ -3,16 +3,27 @@ import json
 import mimetypes
 
 # Simple rule-based intent classifier
+# --- agents/classifier_agent.py ---
+
 def detect_intent(content: str) -> str:
     content = content.lower()
-    if "quotation" in content or "quote" in content:
-        return "RFQ"
-    elif "invoice" in content:
-        return "Invoice"
-    elif "complaint" in content:
-        return "Complaint"
-    else:
-        return "General"
+
+    # Define intent keyword mappings
+    intent_keywords = {
+        "RFQ": ["quotation", "quote request", "rfq", "pricing"],
+        "Invoice": ["invoice", "payment due", "billing", "billed amount"],
+        "Complaint": ["not working", "complaint", "unhappy", "frustrated", "issue", "angry", "problem"],
+        "Regulation": ["gdpr", "hipaa", "compliance", "data privacy", "regulation", "policy"],
+        "Fraud Risk": ["unauthorized", "suspicious", "fraud", "breach", "hack", "leak"]
+    }
+
+    for intent, keywords in intent_keywords.items():
+        for keyword in keywords:
+            if keyword in content:
+                return intent
+
+    return "General"
+
 
 # Detect format based on file extension or content type
 def detect_format(file_path: str) -> str:

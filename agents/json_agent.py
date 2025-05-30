@@ -1,8 +1,12 @@
 import json
 import os
 
-# Validate required keys in the JSON
-REQUIRED_KEYS = ["invoice_id", "customer_name", "items", "total_amount"]
+REQUIRED_FIELDS = {
+    "invoice_id": str,
+    "customer_name": str,
+    "items": list,
+    "total_amount": (int, float)
+}
 
 def parse_json_file(file_path: str) -> dict:
     if not os.path.exists(file_path):
@@ -14,14 +18,25 @@ def parse_json_file(file_path: str) -> dict:
         except json.JSONDecodeError:
             raise ValueError("Invalid JSON format")
 
-    missing_keys = [key for key in REQUIRED_KEYS if key not in data]
-    if missing_keys:
-        raise ValueError(f"Missing required fields: {missing_keys}")
+    anomalies = []
 
-    return {
-        "invoice_id": data["invoice_id"],
-        "customer_name": data["customer_name"],
-        "items": data["items"],
-        "total_amount": data["total_amount"],
+    for field, expected_type in REQUIRED_FIELDS.items():
+        if field not in data:
+            anomalies.append(f"Missing required field: {field}")
+        else:
+            if not isinstance(data[field], expected_type):
+                anomalies.append(f"Field '{field}' has wrong type. Expected {expected_type}, got {type(data[field])}")
+
+    result = {
+        "invoice_id": data.get("invoice_id"),
+        "customer_name": data.get("customer_name"),
+        "items": data.get("items", []),
+        "total_amount": data.get("total_amount"),
+        "anomalies": anomalies,
+        "is_valid": len(anomalies) == 0,
         "raw_json": data
     }
+    result["has_anomaly"] = len(anomalies) > 0
+    result["recommended_action"] = "RiskAlert" if result["has_anomaly"] else "RoutineLog"
+
+    return result

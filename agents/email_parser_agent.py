@@ -29,11 +29,35 @@ def extract_conversation_id(content: str) -> str:
     return match.group(1) if match else None
 
 # Main parsing function
+def detect_tone(content: str) -> str:
+    content = content.lower()
+    if any(word in content for word in ["not acceptable", "furious", "angry", "threaten", "lawsuit", "legal"]):
+        return "Threatening"
+    elif any(word in content for word in ["disappointed", "very unhappy", "frustrated", "bad experience"]):
+        return "Escalation"
+    elif any(word in content for word in ["please", "kindly", "would you mind"]):
+        return "Polite"
+    else:
+        return "Neutral"
+
+def decide_action(tone: str, urgency: str) -> str:
+    if tone in ["Threatening", "Escalation"] or urgency == "High":
+        return "Escalate"
+    else:
+        return "RoutineLog"
+
 def parse_email(content: str) -> dict:
+    sender_email = extract_sender_email(content)
+    sender_name = extract_sender_name(content)
+    urgency = detect_urgency(content)
+    tone = detect_tone(content)
+    action = decide_action(tone, urgency)
+
     return {
-        "sender_email": extract_sender_email(content),
-        "sender_name": extract_sender_name(content),
-        "urgency": detect_urgency(content),
-        "conversation_id": extract_conversation_id(content),
+        "sender_email": sender_email,
+        "sender_name": sender_name,
+        "urgency": urgency,
+        "tone": tone,
+        "recommended_action": action,
         "raw_content": content.strip()
     }

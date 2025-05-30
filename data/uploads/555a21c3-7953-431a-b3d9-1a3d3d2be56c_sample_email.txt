@@ -1,0 +1,9 @@
+From: john@example.com
+Subject: Request for Quotation
+
+Hi Team,
+
+Please share a quotation for 20 HP laptops with extended warranty.
+
+Regards,
+John Doe

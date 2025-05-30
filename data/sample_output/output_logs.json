@@ -1,7 +1,7 @@
 [
     {
-        "timestamp": "2025-05-29 19:29:53",
-        "source_type": "data/uploads\\a242eb58-3c11-4c9b-b323-5237ef307103_sample_email.txt",
+        "timestamp": "2025-05-29 20:49:44",
+        "source_type": "data/uploads\\6145a702-f1a1-40db-8989-b8991b2c1e6a_sample_email.txt",
         "format": "Email",
         "intent": "RFQ",
         "data": {
@@ -10,6 +10,58 @@
             "urgency": "Normal",
             "conversation_id": null,
             "raw_content": "From: john@example.com\nSubject: Request for Quotation\n\nHi Team,\n\nPlease share a quotation for 20 HP laptops with extended warranty.\n\nRegards,\nJohn Doe"
+        }
+    },
+    {
+        "timestamp": "2025-05-29 20:49:50",
+        "source_type": "data/uploads\\3a616ba8-277b-44de-9738-3ed73831e4a7_sample_invoice.pdf",
+        "format": "PDF",
+        "intent": "Invoice",
+        "data": {
+            "invoice_number": "1002",
+            "customer_name": "John Doe",
+            "total_amount": "$5000",
+            "raw_text": "Invoice No: 1002\nBill To: John Doe\nDate: 2025-05-29\nTotal: $5000"
+        }
+    },
+    {
+        "timestamp": "2025-05-29 20:50:04",
+        "source_type": "data/uploads\\36d387b5-86da-47e8-98b3-3d8a4176d1c8_sample_payload.json",
+        "format": "JSON",
+        "intent": "Invoice",
+        "data": {
+            "invoice_id": "INV-1001",
+            "customer_name": "Alice Smith",
+            "items": [
+                {
+                    "name": "HP Laptop",
+                    "quantity": 2,
+                    "price": 60000
+                },
+                {
+                    "name": "Mouse",
+                    "quantity": 2,
+                    "price": 500
+                }
+            ],
+            "total_amount": 121000,
+            "raw_json": {
+                "invoice_id": "INV-1001",
+                "customer_name": "Alice Smith",
+                "items": [
+                    {
+                        "name": "HP Laptop",
+                        "quantity": 2,
+                        "price": 60000
+                    },
+                    {
+                        "name": "Mouse",
+                        "quantity": 2,
+                        "price": 500
+                    }
+                ],
+                "total_amount": 121000
+            }
         }
     }
 ]

@@ -2,6 +2,7 @@
 from fastapi.templating import Jinja2Templates
 from fastapi.requests import Request
 from fastapi.responses import HTMLResponse
+from fastapi.responses import RedirectResponse
 
 templates = Jinja2Templates(directory="templates")
 
@@ -62,8 +63,7 @@ async def upload_file(file: UploadFile = File(...)):
             extracted_data=parsed
         )
 
-        return {"status": "success", "format": format_type, "intent": intent, "data": parsed}
-
+        return RedirectResponse(url="/?success=true", status_code=303)
     except Exception as e:
         return JSONResponse(content={"error": str(e)}, status_code=500)
 
