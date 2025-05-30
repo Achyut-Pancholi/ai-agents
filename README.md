@@ -1,4 +1,4 @@
-[sample_payload.json](https://github.com/user-attachments/files/20516279/sample_payload.json)
+[output_logs (2).json](https://github.com/user-attachments/files/20516414/output_logs.2.json)[sample_payload.json](https://github.com/user-attachments/files/20516279/sample_payload.json)
 # 🤖 Multi-Format Autonomous AI System – Flowbit AI Internship Final Assessment
 
 This project was developed as part of the final round for the **AI Agent Development Internship** at **Flowbit Private Limited**.
@@ -203,8 +203,85 @@ Agent Flow Diagram.jpg
 ![Screenshot 2025-05-30 122446](https://github.com/user-attachments/assets/6a22eb79-c7c2-4b30-b8fd-9ef45f769fa1)
 
 
+- Output Log 
+---[Uploading output_l[
+    {
+        "timestamp": "2025-05-30 12:24:20",
+        "source_type": "data/uploads\\e5df7275-53bc-4fa0-81c1-fdd6b0241215_sample_email.txt",
+        "format": "Email",
+        "intent": "RFQ",
+        "data": {
+            "sender_email": "john@example.com",
+            "sender_name": "John Doe",
+            "urgency": "Normal",
+            "tone": "Polite",
+            "recommended_action": "RoutineLog",
+            "raw_content": "From: john@example.com\nSubject: Request for Quotation\n\nHi Team,\n\nPlease share a quotation for 20 HP laptops with extended warranty.\n\nRegards,\nJohn Doe"
+        }
+    },
+    {
+        "timestamp": "2025-05-30 12:24:25",
+        "source_type": "data/uploads\\9c32bb06-e23d-444b-bd20-c471ae4514f5_sample_invoice.pdf",
+        "format": "PDF",
+        "intent": "Invoice",
+        "data": {
+            "invoice_number": "INV-2025-001",
+            "customer_name": "Achyut Kumar",
+            "total_amount": 11500.0,
+            "compliance_flags": [
+                "GDPR"
+            ],
+            "amount_flagged": true,
+            "raw_text": "Invoice Number : INV-2025-001 \nBill To: Achyut Kumar \nTotal Amount: \u20b911,500 \nMentions: \u201cGDPR\u201d",
+            "action_needed": "RoutineLog"
+        }
+    },
+    {
+        "timestamp": "2025-05-30 12:24:29",
+        "source_type": "data/uploads\\74b0818b-8ddc-43b9-a2e5-1b33b05d2e48_sample_payload.json",
+        "format": "JSON",
+        "intent": "Invoice",
+        "data": {
+            "invoice_id": "INV-1001",
+            "customer_name": "Alice Smith",
+            "items": [
+                {
+                    "name": "HP Laptop",
+                    "quantity": 2,
+                    "price": 60000
+                },
+                {
+                    "name": "Mouse",
+                    "quantity": 2,
+                    "price": 500
+                }
+            ],
+            "total_amount": 121000,
+            "anomalies": [],
+            "is_valid": true,
+            "raw_json": {
+                "invoice_id": "INV-1001",
+                "customer_name": "Alice Smith",
+                "items": [
+                    {
+                        "name": "HP Laptop",
+                        "quantity": 2,
+                        "price": 60000
+                    },
+                    {
+                        "name": "Mouse",
+                        "quantity": 2,
+                        "price": 500
+                    }
+                ],
+                "total_amount": 121000
+            },
+            "has_anomaly": false,
+            "recommended_action": "RoutineLog"
+        }
+    }
+]ogs .json…]()
 
----
 
 
 
